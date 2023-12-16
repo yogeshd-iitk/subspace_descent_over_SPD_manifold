@@ -13,8 +13,8 @@ end
 scale_step=1;  % scale the stepsize
 latest=0 ; % 1 if MATLAB  R2020b or above is available
 paper=0;    % for the seetings used in paper, optimum value is known, set paper =1 to plot results relative to the optimum value 
-subspace_dimension='uni';  %    'multi';    %        input('subspace_dimension='); % 
-algo= 'randomized'; % 'greedy';  %      input('algo='); %  
+subspace_dimension='multi';    %  'uni';  %          input('subspace_dimension='); % 
+algo= 'greedy';  % 'randomized'; %       input('algo='); %  
 %% Initialization
     X_0=eye(W);
     if X_0==eye(W)
