@@ -309,5 +309,6 @@ if paper==0
         save(filename,'W','X_0','B','data','result','-v7.3');   
  %%
 end
- result.f_second_order(end)
-sum(result.T_second_order)
+%% display end results
+f_end=result.f_second_order(end)
+overall_time=sum(result.T_second_order)
