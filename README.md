@@ -7,64 +7,84 @@ Files
 ---------------------------------------------
 
 1) RSD_extension.m
- it is the main code file which implements Riemannian subspace descent algorithm proposed in the paper (https://arxiv.org/pdf/2305.02041.pdf)
+ 
+				It is the main code file which implements Riemannian subspace descent algorithm proposed in the paper (https://arxiv.org/pdf/2305.02041.pdf)
 
 2) user_input.m
-It contains user provided data and the symbolic expression of the objective function.
 
-3)number_of_comp.m
-It calculates the number of terms of each type in the objective function g.
+				It contains user provided data and the symbolic expression of the objective function.
+
+3) number_of_comp.m
+
+				It calculates the number of terms of each type in the objective function g.
 
 4) user_fun.m
-It is the MATLAB function corresponding to the symbolic expression in the file 'user_input.m', generated using 'matlabFunction'.
+
+				It is the MATLAB function corresponding to the symbolic expression in the file 'user_input.m', generated using 'matlabFunction'.
 
 5) user_fun_grad.m
-It is the MATLAB function generated with 'matlabFunction' to compute the gradient of 'user_fun.m'.
 
-6)user_fun_hess.m
-It is the MATLAB function generated with 'matlabFunction' to compute the Hessian of 'user_fun.m'.
+				It is the MATLAB function generated with 'matlabFunction' to compute the gradient of 'user_fun.m'.
+
+6) user_fun_hess.m
+
+				It is the MATLAB function generated with 'matlabFunction' to compute the Hessian of 'user_fun.m'.
 
 7) inti_var.m
-It is the function used to calculate intermediate matrices M1p(X0), M2q(X0), M41r(X0), M42r(X0), M51s(X0), M52s(X0), M61m(X0), M62m(X0), and the function value at the initialization X0. Additionally, it computes trace(M41r(X0)*M42r(X0)), trace(M51s(X0)*M52s(X0)), and trace(M61m(X0)*transpose(M62m(X0)), serving as initializations in the unidirectional case, for the recursive computation of trace(M41r(X)*M42r(X)), trace(M51s(X)*M52s(X)), and trace(M61m(X)*transpose(M62m(X))) at any point X with O(n) complexity. This is in contrast to the direct calculation's O(n^2) cost.
+
+				It is the function used to calculate intermediate matrices M1p(X0), M2q(X0), M41r(X0), M42r(X0), M51s(X0), M52s(X0), M61m(X0), M62m(X0), and the function value at the initialization X0. Additionally, it computes trace(M41r(X0)*M42r(X0)), trace(M51s(X0)*M52s(X0)), and trace(M61m(X0)*transpose(M62m(X0)), serving as initializations in the unidirectional case, for the recursive computation of trace(M41r(X)*M42r(X)), trace(M51s(X)*M52s(X)), and trace(M61m(X)*transpose(M62m(X))) at any point X with O(n) complexity. This is in contrast to the direct calculation's O(n^2) cost.
 
 8) direct_deriv.m
-It computes the directional derivatives of the functions h1p(X), h2q(X), h3(X), h4r(X), h5s(X), and h6m(X) at the point X.
 
-9)subspace_select_second_order_greedy.m
-It generates a subspace using a greedy heuristic method.
+				It computes the directional derivatives of the functions h1p(X), h2q(X), h3(X), h4r(X), h5s(X), and h6m(X) at the point X.
 
-10)subspace_select_second_order_random.m
-It generates a subspace using a randomized method.
+9) subspace_select_second_order_greedy.m
+
+				It generates a subspace using a greedy heuristic method.
+
+10) subspace_select_second_order_random.m
+
+				It generates a subspace using a randomized method.
 
 11) mod_entry.m
-In the randomized unidirectional case, this function is utilized to store values that undergo modifications in the current iteration. These stored values are then used to compute trace(M41r(X)*M42r(X)), trace(M51s(X)*M52s(X)), and trace(M61m(X)*transpose(M62m(X))) at any point X with O(n) complexity.
+
+				In the randomized unidirectional case, this function is utilized to store values that undergo modifications in the current iteration. These stored values are then used to compute trace(M41r(X)*M42r(X)), trace(M51s(X)*M52s(X)), and trace(M61m(X)*transpose(M62m(X))) at any point X with O(n) complexity.
 
 12) Bup_multiplcatn.m
-It post-multiplies any matrix A by the update matrix 'Bup,' denoted as A*Bup.
+
+				It post-multiplies any matrix A by the update matrix 'Bup,' denoted as A*Bup.
 
 13) Bupintrns_multiplcatn.m
-It pre-multiplies any matrix A by the inverse of the update matrix 'Bup,' denoted as inverse(Bup)*A.
 
-14)intrmdt_var.m
-It computes intermediate variables utilized in the functions 'trace_hessV_V_fun.m' and 'trace_V_grad_V_Xin_fun.m'.
+				It pre-multiplies any matrix A by the inverse of the update matrix 'Bup,' denoted as inverse(Bup)*A.
+
+14) intrmdt_var.m
+
+				It computes intermediate variables utilized in the functions 'trace_hessV_V_fun.m' and 'trace_V_grad_V_Xin_fun.m'.
 
 15) trace_grad_V_fun.m
-It computes 'trace(gradf *V)'.
+
+				It computes 'trace(gradf *V)'.
 
 16) trace_hessV_V_fun.m
-It computes 'trace(hessf[V]*V)'.
+
+				It computes 'trace(hessf[V]*V)'.
 
 17) trace_V_grad_V_Xin_fun.m
-It computes 'trace(V*gradf*V*inverse(X))'.
+
+				It computes 'trace(V*gradf*V*inverse(X))'.
 
 18) fun_min_con.m 
-It implements the alternate method of solving positive definite matrix-constrained problems using the MATLAB function 'fmincon'.
+
+				It implements the alternate method of solving positive definite matrix-constrained problems using the MATLAB function 'fmincon'.
 
 19) user_fun_con.m
-It performs function evaluation with respect to the variable X using the 'user_fun.m' function in the 'fun_min_con.m' code.
+
+				It performs function evaluation with respect to the variable X using the 'user_fun.m' function in the 'fun_min_con.m' code.
 
 20) lambda_star_fun.m
-It calculates the optimal values of lambdas for each basis vector in the chosen subspace.
+
+				It calculates the optimal values of lambdas for each basis vector in the chosen subspace.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -73,13 +93,13 @@ Data files generated by the code
 ---------------------------------
 
 1)user_data.mat
-It stores user-provided data, including constant matrices Cp, Dq, Ar, Hr, Fs, Gs, Pm, Qm, as well as initializations such as X0, B0, inverse(B0), etc.
+				It stores user-provided data, including constant matrices Cp, Dq, Ar, Hr, Fs, Gs, Pm, Qm, as well as initializations such as X0, B0, inverse(B0), etc.
 
 2)function_value_second_order_W_iter_scale_step_subspace_dimensionRRSD.mat
-It stores the results of the RRSD algorithm with randomized subspace selection method.
+				It stores the results of the RRSD algorithm with randomized subspace selection method.
 
 3)function_value_second_order_W_iter_scale_step_subspace_dimensionRGSD.mat
-It stores the results of the RGSD algorithm with greedy subspace selection method.
+				It stores the results of the RGSD algorithm with greedy subspace selection method.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
