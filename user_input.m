@@ -27,27 +27,27 @@ function[data,no_comp,f_user]=user_input(W)
         data.G_s(:,:,s)=temp_G*(temp_G'); 
     end
     %
-    M=8;
-    for m=1:M
-        temp_P=randn(W,W); 
-        data.P_m(:,:,m)=temp_P*(temp_P'); 
-        temp_Q=randn(W,W); 
-        data.Q_m(:,:,m)=temp_Q*(temp_Q'); 
-    end
+    % M=8;
+    % for t=1:M
+    %     temp_P=randn(W,W); 
+    %     data.P_m(:,:,t)=temp_P*(temp_P'); 
+    %     temp_Q=randn(W,W); 
+    %     data.Q_m(:,:,t)=temp_Q*(temp_Q'); 
+    % end
     %
 %% Number of components
 [no_comp]=number_of_comp(data);
 %
 %%  Symbolic variables of Function
 % variables
-    syms a [no_comp.P 1] real
-    syms b [no_comp.Q 1] real
+    syms p [no_comp.P 1] real
+    syms q [no_comp.Q 1] real
     syms k [no_comp.logdt 1] real
     syms r [no_comp.R 1] real 
     syms s [no_comp.S 1] real 
     syms t [no_comp.M 1] real 
 %
 %% functional form
-f_user=(sum(a)+sum(b)-sum(k)+sum(r)+sum(s)+sum(t));
+f_user=(sum(p)+sum(q)-sum(k)+sum(r)+sum(s)+sum(t));
 %
 end 
