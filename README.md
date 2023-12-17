@@ -132,41 +132,48 @@ Default settings for these variables are: stepsz_method='adaptive', scale_step=1
 
 3) Run the code file 'RSD_extension.m' and provide values for 'W' (size of matrices), 'iter'(no of iterations) when prompted.
 
+
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Performance of the algorithm
 
--------------------------------------------
-For comparison purposes, an alternative method using the MATLAB function 'fmincon' is implemented in the file 'fun_min_con.m'. The positive definiteness constraint is enforced using the change of variable X = L * L' + eps * I, where eps = 2.220446049250313e-16, and 'I' is the identity matrix. Here, 'X' is the variable of the original problem, and 'L' is the new variable used in the code file 'fun_min_con.m'.  To ensure comparable performance, we used 3000 iterations for the proposed RGSD algorithm, while 6000 iterations were used for 'fun_min_con.m'. Here, 'W' denotes the matrix size, 'f' denotes the function value at the last iteration, and 'time' denotes the time taken by the algorithm. Subscripts 'RRSD' and 'fmincon' are used to distinguish the results of the algorithms. The results obtained are given below. To reproduce these results, first run the code 'RSD_extension.m' with default setting and set W to 10, 20, or 50, and set iter to 3000 when prompted. This will produce the results of the RRSD algorithm and store user data, i.e., constant matrices Cp, Dq, Ar, Hr, Fs, Gs, Pm, Qm, in the file 'user_data.mat'. Next, run the code file 'fun_min_con.m'. It will use the 'user_data.mat' file and automatically detect the size of matrices from the file.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+For comparison purposes, an alternative method using the MATLAB function 'fmincon' is implemented in the file 'fun_min_con.m'. The positive definiteness constraint is enforced using the change of variable X = L * L' + eps * I, where eps = 2.220446049250313e-16, and 'I' is the identity matrix. Here, 'X' is the variable of the original problem, and 'L' is the new variable used in the code file 'fun_min_con.m'.  To ensure comparable performance, we used 3000 iterations for the proposed RGSD algorithm, while 6000 iterations were used for 'fun_min_con.m'. Here, 'W' denotes the matrix size, 'f' denotes the function value at the last iteration, and 'time' represents the time taken by the algorithm in seconds. Subscripts 'RRSD' and 'fmincon' are used to distinguish the results of the algorithms. The results obtained are given below. To reproduce these results, first run the code 'RSD_extension.m' with default setting and set W to 10, 20, or 50, and set iter to 3000 when prompted. This will produce the results of the RRSD algorithm and store user data, i.e., constant matrices Cp, Dq, Ar, Hr, Fs, Gs, Pm, Qm, in the file 'user_data.mat'. Next, run the code file 'fun_min_con.m'. It will use the 'user_data.mat' file and automatically detect the size of matrices from the file.
+
 --------
 W=10
 --------
-f_RGSD=9.750333900089568e+02 
-time_RGSD=10.120367699999996
+f_RGSD=9.750333900089568e+02;
 
+time_RGSD=10.120367699999996;
 
-f_fmincon=9.750334873443385e+02
-time_fmincon=10.836257
+f_fmincon=9.750334873443385e+02;
+
+time_fmincon=10.836257;
 
 f_fmincon-f_RGSD =9.733538172440603e-05
 --------
 W=20
 --------
-f_RGSD=9.201035544563601e+03
-time_RGSD=12.666394699999998
+f_RGSD   = 9.201035544563601e+03;
 
-f_fmincon=9.359874987444849e+03
-time_fmincon=20.420358
+time_RGSD   = 12.666394699999998;
+
+f_fmincon= 9.359874987444849e+03;
+
+time_fmincon= 20.420358
 
 f_fmincon-f_RGSD=1.588394428812480e+02
 --------
 W=50
 --------
-f_RGSD=1.282001654616017e+05
-time_RGSD=23.138362700000012
+f_RGSD=1.282001654616017e+05;
 
-f_fmincon=2.440208588165893e+05
-time_fmincon=37.116243
+time_RGSD=23.138362700000012;
+
+f_fmincon=2.440208588165893e+05;
+
+time_fmincon=37.116243;
 
 f_fmincon-f_RGSD=1.158206933549876e+05
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
