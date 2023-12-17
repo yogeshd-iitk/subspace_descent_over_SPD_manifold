@@ -140,9 +140,9 @@ Performance of the algorithm
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 For comparison purposes, an alternative method using the MATLAB function 'fmincon' is implemented in the file 'fun_min_con.m'. The positive definiteness constraint is enforced using the change of variable X = L * L' + eps * I, where eps = 2.220446049250313e-16, and 'I' is the identity matrix. Here, 'X' is the variable of the original problem, and 'L' is the new variable used in the code file 'fun_min_con.m'.  To ensure comparable performance, we used 3000 iterations for the proposed RGSD algorithm, while 6000 iterations were used for 'fun_min_con.m'. Here, 'W' denotes the matrix size, 'f' denotes the function value at the last iteration, and 'time' represents the time taken by the algorithm in seconds. Subscripts 'RRSD' and 'fmincon' are used to distinguish the results of the algorithms. The results obtained are given below. To reproduce these results, first run the code 'RSD_extension.m' with default setting and set W to 10, 20, or 50, and set iter to 3000 when prompted. This will produce the results of the RRSD algorithm and store user data, i.e., constant matrices Cp, Dq, Ar, Hr, Fs, Gs, Pm, Qm, in the file 'user_data.mat'. Next, run the code file 'fun_min_con.m'. It will use the 'user_data.mat' file and automatically detect the size of matrices from the file.
 
---------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
 W=10
---------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
 f_RGSD=9.750333900089568e+02;
 
 time_RGSD=10.120367699999996;
